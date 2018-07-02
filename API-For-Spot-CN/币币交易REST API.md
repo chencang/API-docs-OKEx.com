@@ -33,7 +33,7 @@ REST访问的根URL：`https://www.okex.com/api/v1`    
 
 获取OKEx币币行情数据
 
-1. Get /api/v1/ticker    <a name="ticker">获取OKEx币币行情</a>
+1. [Get /api/v1/ticker    获取OKEx币币行情](#ticker)
 
 URL `https://www.okex.com/api/v1/ticker.do`	
 
