@@ -25,8 +25,8 @@ REST访问的根URL：`https://www.okex.com/api/v1`    
 
 索引
 
-- <a href="ticker" >Get /api/v1/ticker 获取OKEx币币行情</a>
-- <a href="depth" >Get /api/v1/depth   获取OKEx币币市场深度</a>
+- <a href="#ticker" >Get /api/v1/ticker 获取OKEx币币行情</a>
+- <a href="#depth" >Get /api/v1/depth   获取OKEx币币市场深度</a>
 
 
 ### 币币行情 API 
