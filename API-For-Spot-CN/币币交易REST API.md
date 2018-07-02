@@ -8,10 +8,6 @@ REST，即Representational State Transfer的缩写，是目前最流行的一种
 - 客户端通过四个HTTP指令，对服务器端资源进行操作，实现“表现层状态转化”。   
 
 建议开发者使用REST API进行币币交易或者资产提现等操作。  
-
-#####<a href="#第一段的锚点名称">第一段标题</a>
-
-
     
 ## 请求交互    
 
@@ -27,11 +23,17 @@ REST访问的根URL：`https://www.okex.com/api/v1`    
 
 ## API参考  
 
-### 币币行情 API 
-####<a name="第一段的锚点名称">第一段标题</a>
-获取OKEx币币行情数据  
+索引
 
-1. Get /api/v1/ticker    获取OKEx币币行情
+- <a href="ticker">Get /api/v1/ticker 获取OKEx币币行情</a>
+- <a href="depth">Get /api/v1/depth   获取OKEx币币市场深度</a>
+
+
+### 币币行情 API 
+
+获取OKEx币币行情数据
+
+1. <a name="ticker">Get /api/v1/ticker    获取OKEx币币行情</a>
 
 URL `https://www.okex.com/api/v1/ticker.do`	
 
@@ -72,7 +74,7 @@ vol: 成交量(最近的24小时)
 | :-----    | :-----   | :-----    | :-----   |
 |symbol|String|是|币对如ltc_btc|
 
-2. Get /api/v1/depth   获取OKEx币币市场深度
+2. <a name="depth">Get /api/v1/depth   获取OKEx币币市场深度</a>
 
 URL `https://www.okex.com/api/v1/depth.do`	
 
