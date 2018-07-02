@@ -27,13 +27,29 @@ REST访问的根URL：`https://www.okex.com/api/v1`    
 
 - <a href="#ticker" >Get /api/v1/ticker 获取OKEx币币行情</a>
 - <a href="#depth" >Get /api/v1/depth   获取OKEx币币市场深度</a>
+- <a href="#trades" >Get /api/v1/trades 获取OKEx币币交易信息</a>
+- <a href="#kline" >Get /api/v1/kline 获取OKEx币币K线数据</a>
+- <a href="#userinfo" >POST /api/v1/userinfo 获取用户信息</a>
+- <a href="#trade" >POST /api/v1/trade 下单交易</a>
+- <a href="#batch_trade" >POST /api/v1/batch_trade 批量下单</a>
+- <a href="#cancel_order" >POST /api/v1/cancel_order 撤销订单</a>
+- <a href="#order_info" >POST /api/v1/order_info   获取用户的订单信息</a>
+- <a href="#orders_info" >POST /api/v1/orders_info 批量获取用户订单</a>
+- <a href="#order_history" >POST /api/v1/order_history 获取历史订单信息</a>
+- <a href="#withdraw" >POST /api/v1/withdraw 提币</a>
+- <a href="#cancel_withdraw" >POST /api/v1/cancel_withdraw   取消提币</a>
+- <a href="#withdraw_info" >POST /api/v1/withdraw_info 查询提币</a>
+- <a href="#account_records" >POST /api/v1/account_records 获取用户提现/充值记录</a>
+- <a href="#funds_transfer" >POST /api/v1/funds_transfer   资金划转</a>
+- <a href="#wallet_info" >POST /api/v1/wallet_info 获取用户钱包账户信息</a>
+
 
 
 ### 币币行情 API 
 
 获取OKEx币币行情数据
 
-1. [Get /api/v1/ticker    获取OKEx币币行情](#ticker)
+1. <a name="ticker">Get /api/v1/ticker    获取OKEx币币行情</a>
 
 URL `https://www.okex.com/api/v1/ticker.do`	
 
@@ -118,7 +134,7 @@ bids :买方深度
 |symbol|String|是|币对如ltc_btc|
 |size|Integer|否(默认200)|value: 1-200|
 
-3. Get /api/v1/trades   获取OKEx币币交易信息(600条)
+3. <a name="trades">Get /api/v1/trades   获取OKEx币币交易信息(600条)</a>
 
 URL `https://www.okex.com/api/v1/trades.do`	
 
@@ -174,7 +190,7 @@ type: buy/sell
 |symbol|String|是|币对如ltc_btc|
 |since|Long|否(默认返回最近成交600条)|tid:交易记录ID(返回数据不包括当前tid值,最多返回600条数据)|
 
-4. Get /api/v1/kline    获取OKEx币币K线数据(每个周期数据条数2000左右)
+4. <a name="kline">Get /api/v1/kline    获取OKEx币币K线数据(每个周期数据条数2000左右)</a>
 
 URL `https://www.okex.com/api/v1/kline.do`	
 
@@ -230,7 +246,7 @@ GET https://www.okex.com/api/v1/kline.do?symbol=ltc_btc&type=1min
 
 用于OKEx币币交易  
 
-1. POST /api/v1/userinfo    获取用户信息
+1. <a name="userinfo">POST /api/v1/userinfo    获取用户信息</a>
 
 URL `https://www.okex.com/api/v1/userinfo.do`	访问频率 6次/2秒    
 
@@ -273,7 +289,7 @@ freezed:账户冻结余额
 |api_key|String|是|用户申请的apiKey|
 |sign|String|是|请求参数的签名|
 
-2. POST /api/v1/trade    下单交易
+2. <a name="trade">POST /api/v1/trade    下单交易</a>
 
 URL `https://www.okex.com/api/v1/trade.do`	访问频率 20次/2秒	
 
@@ -304,7 +320,7 @@ order_id:订单ID
 |amount|Double|否|交易数量 市价买单不传amount,市价买单需传price作为买入总金额|
 |sign|String|是|请求参数的签名|
 
-3. POST /api/v1/batch_trade    批量下单
+3. <a name="batch_trade">POST /api/v1/batch_trade    批量下单</a>
 
 URL `https://www.okex.com/api/v1/batch_trade.do`	访问频率 20次/2秒	
 
@@ -345,7 +361,7 @@ order_id:订单ID
 |orders_data|String(格式\[{price:3,amount:5,type:'sell'},{price:3,amount:3,type:'buy'}])|是|最大下单量为5， price和amount参数参考trade接口中的说明，最终买卖类型由orders_data 中type 为准，如orders_data不设定type 则由上面type设置为准。|
 |sign|String|是|请求参数的签名|
 
-4. POST /api/v1/cancel_order    撤销订单
+4. <a name="cancel_order">POST /api/v1/cancel_order    撤销订单</a>
 
 URL `https://www.okex.com/api/v1/cancel_order.do`	访问频率 20次/2秒
 
@@ -377,7 +393,7 @@ error:撤单请求失败的订单ID(用户多笔订单)
 |order_id|String|是|订单ID(多个订单ID中间以","分隔,一次最多允许撤消3个订单)|
 |sign|String|是|请求参数的签名|
 
-5. POST /api/v1/order_info    获取用户的订单信息
+5. <a name="order_info">POST /api/v1/order_info    获取用户的订单信息</a>
 
 URL `https://www.okex.com/api/v1/order_info.do`	访问频率 20次/2秒(未成交)
 
@@ -441,7 +457,7 @@ type:buy_market:市价买入 / sell_market:市价卖出
 |order_id|Long|是|订单ID -1:未完成订单，否则查询相应订单号的订单|
 |sign|String|是|请求参数的签名|
 
-6. POST /api/v1/orders_info    批量获取用户订单
+6. <a name="orders_info">POST /api/v1/orders_info    批量获取用户订单</a>
 
 URL `https://www.okex.com/api/v1/orders_info.do`	访问频率 20次/2秒
 
@@ -502,7 +518,7 @@ result：结果信息
 |order_id|String|是|订单ID(多个订单ID中间以","分隔,一次最多允许查询50个订单)|
 |sign|String|是|请求参数的签名|
 
-7. POST /api/v1/order_history    获取历史订单信息，只返回最近两天的信息
+7. <a name="order_history">POST /api/v1/order_history    获取历史订单信息，只返回最近两天的信息</a>
 
 URL `https://www.okex.com/api/v1/order_history.do`	
 
@@ -561,7 +577,7 @@ result:true代表成功返回
 |page_length|Integer|是|每页数据条数，最多不超过200|
 |sign|String|是|请求参数的签名|
 
-8. POST /api/v1/withdraw  	 提币BTC/LTC/ETH/ETC/BCH
+8. <a name="withdraw">POST /api/v1/withdraw  	 提币BTC/LTC/ETH/ETC/BCH</a>
 
 URL `https://www.okex.com/api/v1/withdraw.do`	
 
@@ -597,7 +613,7 @@ result:true表示请求成功
 |target|String|是|地址类型 okcn：国内站 okcom：国际站 okex：OKEX address：外部地址|
 |sign|String|是|请求参数的签名|
 
-9. POST /api/v1/cancel_withdraw   取消提币BTC/LTC/ETH/ETC/BCH
+9. <a name="cancel_withdraw">POST /api/v1/cancel_withdraw   取消提币BTC/LTC/ETH/ETC/BCH</a>
 
 URL `https://www.okex.com/api/v1/cancel_withdraw.do`	
 
@@ -629,7 +645,7 @@ result:true表示请求成功
 |withdraw_id|String|是|提币申请Id|
 |sign|String|是|请求参数的签名|
 
-10. POST /api/v1/withdraw_info    查询提币BTC/LTC/ETH/ETC/BCH信息
+10. <a name="withdraw_info">POST /api/v1/withdraw_info    查询提币BTC/LTC/ETH/ETC/BCH信息</a>
 
 URL `https://www.okex.com/api/v1/withdraw_info.do`	
 
@@ -675,7 +691,7 @@ withdraw_id:提币申请Id
 |withdraw_id|String|是|提币申请Id|
 |sign|String|是|请求参数的签名|
 
-11. POST /api/v1/account_records    获取用户提现/充值记录
+11. <a name="account_records">POST /api/v1/account_records    获取用户提现/充值记录</a>
 
 URL `https://www.okex.com/api/v1/account_records.do`	
 
@@ -729,7 +745,7 @@ status: 记录状态,如果查询充值记录:(-1:充值失败;0:等待确认;1:
 |page_length|Integer|是|每页数据条数，最多不超过50|
 |sign|String|是|请求参数的签名|
 
-12. POST /api/v1/funds_transfer    资金划转
+12. <a name="funds_transfer">POST /api/v1/funds_transfer    资金划转</a>
 
 URL `https://www.okex.com/api/v1/funds_transfer.do`	
 
@@ -766,7 +782,7 @@ result:划转结果。若是划转失败，将给出错误码提示。
 |to|Number|是|转入账户(1：币币账户 3：合约账户 6：我的钱包)|
 |sign|String|是|请求参数的签名|
 	
-13. POST /api/v1/wallet_info    获取用户钱包账户信息
+13. <a name="wallet_info">POST /api/v1/wallet_info    获取用户钱包账户信息</a>
 
 URL `https://www.okex.com/api/v1/wallet_info.do`	访问频率 6次/2秒    
 
